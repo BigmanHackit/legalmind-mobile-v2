@@ -1,0 +1,1 @@
+# legalmind-mobile-v2
