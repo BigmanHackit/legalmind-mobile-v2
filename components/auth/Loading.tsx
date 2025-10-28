@@ -11,6 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 import { Scale } from 'lucide-react-native';
+import { useTheme } from '../../lib/providers/ThemeProvider';
 
 interface LoadingProps {
   onComplete?: () => void;
@@ -20,13 +21,19 @@ interface LoadingProps {
 export function Loading({ onComplete, duration = 3000 }: LoadingProps) {
   const [stage, setStage] = useState<'zoom-in' | 'ring' | 'zoom-out'>('zoom-in');
 
+  const { activeTheme } = useTheme();
+  const isDark = activeTheme === 'dark';
+
   const logoScale = useSharedValue(0.5);
   const logoOpacity = useSharedValue(0);
   const ringOpacity = useSharedValue(0);
   const ringScale = useSharedValue(0.8);
   const containerOpacity = useSharedValue(1);
 
-  const colors = ['#6A9113', '#8AB918', '#141517', '#6A9113'];
+  // Theme-responsive colors
+  const colors = isDark 
+    ? ['#6A9113', '#8AB918', '#2A2B2F', '#6A9113']
+    : ['#6A9113', '#8AB918', '#E5E5E5', '#6A9113'];
 
   useEffect(() => {
     const timings = {
@@ -100,7 +107,7 @@ export function Loading({ onComplete, duration = 3000 }: LoadingProps) {
           right: 0,
           bottom: 0,
           zIndex: 50,
-          backgroundColor: '#FFFFFF',
+          backgroundColor: isDark ? '#171514' : '#FFFFFF',
           justifyContent: 'center',
           alignItems: 'center',
         },
@@ -130,7 +137,7 @@ export function Loading({ onComplete, duration = 3000 }: LoadingProps) {
                 colors={colors}
                 duration={2 + index * 0.5}
                 clockwise={index % 2 === 0}
-                opacity={0.8 - index * 0.2}
+                opacity={isDark ? 0.6 - index * 0.15 : 0.8 - index * 0.2}
               />
             ))}
 
@@ -153,7 +160,7 @@ export function Loading({ onComplete, duration = 3000 }: LoadingProps) {
               alignItems: 'center',
               shadowColor: '#6A9113',
               shadowOffset: { width: 0, height: 10 },
-              shadowOpacity: 0.25,
+              shadowOpacity: isDark ? 0.4 : 0.25,
               shadowRadius: 25,
               elevation: 10,
             }}

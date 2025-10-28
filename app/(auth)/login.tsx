@@ -96,9 +96,6 @@ export default function LoginScreen() {
               <Text className={`text-3xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 Welcome back
               </Text>
-              <Text className={`text-base ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                Sign in to continue your legal work
-              </Text>
             </View>
 
             {/* Error Alert */}

@@ -11,6 +11,7 @@ import { paymentsApi } from '../../lib/api/payment';
 import { contractsApi } from '../../lib/api/contract';
 import { casesApi } from '../../lib/api/cases';
 import { usersApi } from '../../lib/api/user';
+import { Loading } from '../../components/auth/Loading';
 
 export default function DashboardScreen() {
   const router = useRouter();
@@ -95,16 +96,7 @@ export default function DashboardScreen() {
   ];
 
   if (loading) {
-    return (
-      <SafeAreaView className={`flex-1 ${isDark ? 'bg-[#141517]' : 'bg-gray-50'}`}>
-        <View className="flex-1 items-center justify-center">
-          <ActivityIndicator size="large" color="#6A9113" />
-          <Text className={`mt-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-            Loading dashboard...
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
+    return (<Loading />);
   }
 
   return (
@@ -116,14 +108,18 @@ export default function DashboardScreen() {
         }
       >
         <View className="px-6 py-8">
-          {/* Welcome Section */}
-          <View className="mb-6">
-            <Text className={`text-3xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              {isFirstVisit ? `Welcome, ${user?.firstName || 'Boss'}!` : `Welcome back, ${user?.firstName || 'Counselor'}`}
-            </Text>
-            <Text className={`text-base ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-              {isFirstVisit ? "Let's get you started with your legal work." : "Here's what's happening with your legal work today."}
-            </Text>
+          {/* Header */}
+          <View className="flex-row items-center justify-between mb-6">
+            <View className="flex-row items-center gap-3">
+              <View className="bg-[#6A9113]/20 p-2 rounded-lg">
+                <Scale size={20} color="#6A9113" />
+              </View>
+              <View>
+                <Text className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  Dashboard
+                </Text>
+              </View>
+            </View>
           </View>
 
           {/* Stats Grid */}
