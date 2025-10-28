@@ -1,7 +1,29 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Platform } from 'react-native';
 
-const API_BASE_URL =
-  process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:3001/api/v1";
+const getApiBaseUrl = () => {
+    // If environment variable is set, use it
+    if (process.env.EXPO_PUBLIC_API_BASE_URL) {
+      return process.env.EXPO_PUBLIC_API_BASE_URL;
+    }
+  
+    // Development defaults
+    if (__DEV__) {
+      // Android emulator uses 10.0.2.2 to access host machine's localhost
+      if (Platform.OS === 'android') {
+        return 'http://10.0.2.2:3001/api/v1';
+      }
+      // iOS simulator can use localhost
+      if (Platform.OS === 'ios') {
+        return 'http://localhost:3001/api/v1';
+      }
+    }
+  
+    // Production fallback
+    return 'https://your-production-api.com/api/v1';
+  };
+  
+  const API_BASE_URL = getApiBaseUrl();
 
 class ApiClient {
   private baseURL: string;

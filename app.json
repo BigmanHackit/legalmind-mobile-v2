@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "legalmind-mobile-v2",
+    "name": "LegalMind Pro",
     "slug": "legalmind-mobile-v2",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,7 +13,8 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.djhackit.legalmindmobilev2"
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +22,8 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.djhackit.legalmindmobilev2"
     },
     "web": {
       "favicon": "./assets/favicon.png"
