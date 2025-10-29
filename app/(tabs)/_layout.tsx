@@ -19,7 +19,7 @@ function CustomTabBar({ state, navigation }: BottomTabBarProps) {
   ];
 
   return (
-    <View className="absolute bottom-0 left-0 right-0 px-5 pb-5 ios:pb-5 android:pb-4">
+    <View className="absolute bottom-0 left-0 right-0 px-5 pb-5 ios:pb-5 android:pb-1">
       <View
         className={`flex-row h-[70px] rounded-[35px] items-center justify-around px-2.5 ${
           isDark ? 'bg-[#171514]' : 'bg-white'

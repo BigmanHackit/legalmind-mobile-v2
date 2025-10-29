@@ -48,10 +48,10 @@ export default function CasesScreen() {
           <View className="flex-row items-center justify-between mb-6">
             <View className="flex-row items-center gap-3">
               <View className="bg-[#6A9113]/20 p-2 rounded-lg">
-                <Sparkles size={24} color="#6A9113" />
+                <Sparkles size={20} color="#6A9113" />
               </View>
               <View>
-                <Text className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                <Text className={`text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
                   Cases
                 </Text>
                 <Text className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>

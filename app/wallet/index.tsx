@@ -163,7 +163,7 @@ export default function WalletScreen() {
                       <Text className="text-xl text-white/80">Credits</Text>
                     </>
                   ) : (
-                    <Text className="text-5xl text-white font-bold">
+                    <Text className={`text-5xl ${isDark ? 'text-white' : 'text-gray-900'}`}>
                       {walletBalance?.balanceInNGN || '₦0.00'}
                     </Text>
                   )}
@@ -270,7 +270,7 @@ export default function WalletScreen() {
           </View>
 
           {/* Credit Info */}
-          <View className="mt-6 p-6 rounded-2xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-900/40">
+          <View className={`mt-6 p-6 rounded-2xl ${isDark ? 'bg-blue-900/20 border-blue-900/40' : 'bg-blue-50 border-blue-200'} border`}>
             <Text className={`font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               How Credits Work
             </Text>
