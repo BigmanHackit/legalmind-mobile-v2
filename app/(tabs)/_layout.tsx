@@ -63,8 +63,8 @@ function CustomTabBar({ state, navigation }: BottomTabBarProps) {
               <View key={tab.name} className="flex-1 items-center justify-center -mt-9">
                 <TouchableOpacity
                   onPress={onPress}
-                  className={`w-[70px] h-[70px] rounded-[35px] items-center justify-center border-6 border-white ${
-                    isFocused ? 'bg-[#6A9113]' : 'bg-[#7FA01C]'
+                  className={`w-[70px] h-[70px] rounded-[35px] items-center justify-center border-6 border-[#6A9113] ${
+                    isFocused ? 'bg-[#6A9113]' : 'bg-gray-800'
                   }`}
                   activeOpacity={0.8}
                   style={{
@@ -76,12 +76,12 @@ function CustomTabBar({ state, navigation }: BottomTabBarProps) {
                         shadowRadius: 15,
                       },
                       android: {
-                        elevation: 20,
+                        elevation: 40,
                       },
                     }),
                   }}
                 >
-                  <Icon size={32} color="#FFFFFF" strokeWidth={2.5} />
+                  <Icon size={32} color={`${isFocused ? '#fff' : '#e5fac8'}`} strokeWidth={2.5} />
                 </TouchableOpacity>
               </View>
             );
@@ -95,9 +95,7 @@ function CustomTabBar({ state, navigation }: BottomTabBarProps) {
               activeOpacity={0.7}
             >
               <View
-                className={`w-[50px] h-[50px] rounded-[25px] items-center justify-center ${
-                  isFocused ? (isDark ? 'bg-[#2A2B2F]' : 'bg-gray-100') : ''
-                }`}
+                className={`w-[50px] h-[50px] rounded-[25px] items-center justify-center`}
               >
                 <Icon
                   size={24}

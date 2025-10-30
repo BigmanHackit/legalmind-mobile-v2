@@ -61,7 +61,7 @@ export default function ProfileScreen() {
   }: any) => (
     <TouchableOpacity
       onPress={onPress}
-      className={`flex-row items-center justify-between p-4 ${isDark ? 'bg-gray-800' : 'bg-white'} rounded-xl mb-2`}
+      className={`flex-row items-center justify-between p-4 rounded-xl mb-2`}
     >
       <View className="flex-row items-center gap-3">
         <View className={`p-2 rounded-lg ${destructive ? 'bg-red-100 dark:bg-red-900/30' : 'bg-[#6A9113]/20'}`}>

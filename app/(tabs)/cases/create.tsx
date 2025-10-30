@@ -282,11 +282,11 @@ export default function IracGeneratorScreen() {
           {/* Header */}
           <View className="flex-row items-center gap-3 mb-6">
             <View className="bg-[#6A9113]/20 p-2 rounded-lg">
-              <Sparkles size={24} color="#6A9113" />
+              <Sparkles size={20} color="#6A9113" />
             </View>
             <View>
               <Text
-                className={`text-2xl font-bold ${
+                className={`text-xl font-bold ${
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
